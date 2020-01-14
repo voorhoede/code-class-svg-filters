@@ -1,0 +1,53 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+  <nav class="cc-navigation">
+    <a href="/" class="cc-back-link">&#8592; back to overview</a>
+    <a href="/exercise-4-answer/" class="cc-answer-link">See answer &#8594;</a>
+  </nav>
+{% endblock %}
+
+{% block introduction %}
+  <h1>Exercise 4</h1>
+  <p>Create multiple effects and merge them together</p>
+{% endblock %}
+
+{% block html %}
+  <section class="cc-html-playground">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+      <defs>
+        <filter id="filter">
+          {# 1. Create a color filter #}
+
+          {# 2. Create a drop shadow #}
+
+          <!-- Smoke effect for free ;) -->
+          <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" result="TURBULENCE"/>
+          <feDisplacementMap in2="TURBULENCE" in="BLUR" scale="40" xChannelSelector="R" yChannelSelector="G" result="SMOKE" />
+
+          {# 3. (OPTIONAL) want to add more effects? Go ahead! #}
+
+          {# 4. Merge all effects together #}
+
+        </filter>
+      </defs>
+
+      <g filter="url(#filter)">
+        <path fill="#070de9" d="M30.8 49.7c-3.3 18.4 3 44.4 17.6 69.7 14.7 25.4 34.1 43.7 51.6 50.3V30.3c-29.3 0-55.1 7.6-69.4 19.5h.2z"/>
+        <path fill="#e9d100" d="M151.5 119.5c14.7-25.4 20.8-51.4 17.8-69.7-14.4-11.8-39.9-19.5-69.4-19.5v139.5c17.5-6.6 37-25 51.6-50.3z"/>
+        <path fill="#fff" d="M134.6 53.1a90.7 90.7 0 00-13-2.7c0 1.8 0 3.9-.3 6l-1.5 14c2.9.9 5.6 2.1 7.7 3.4 0 2.9-.5 6.3-1.4 9.8a64.4 64.4 0 01-7.2 17.2 48.5 48.5 0 01-18.9 20.9 45 45 0 01-7.8-6 61.5 61.5 0 01-11.3-14.9 66.8 66.8 0 01-7.3-17.3c-.9-3.6-1.3-6.9-1.2-9.8 2-1.3 4.5-2.4 7.6-3.4-.6-4.7-1.2-9.5-1.5-14 0-2.2-.2-4.2-.3-6.1-4.5.9-8.9 1.8-13 2.9a67.7 67.7 0 00-16.9 7.1c0 5.4.7 11.6 2.4 18.3a133 133 0 0034.6 59.9c4.9 4.8 10 8.6 14.5 11.2a70 70 0 0014.7-11.2 135 135 0 0034.6-59.9c1.8-6.7 2.5-13 2.4-18.3a76.7 76.7 0 00-16.9-7.1z"/>
+        <path fill="#eaeaea" d="M99.9 121.6a39 39 0 01-7.8-6 74.7 74.7 0 01-18.5-32.2c-.9-3.6-1.3-6.9-1.2-9.7a34 34 0 017.6-3.3c-.6-4.7-1.2-9.5-1.4-14.1l-.4-6.1c-4.5.9-8.9 1.8-13 2.9a67.7 67.7 0 00-16.9 7.1c0 5.4.7 11.6 2.4 18.3a133 133 0 0034.6 59.9c4.9 4.8 10 8.6 14.5 11.2l.1-28z"/>
+      </g>
+    </svg>
+
+  </section>
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+    .cc-html-playground svg {
+      border: 1px solid blue;
+    }
+  </style>
+{% endblock %}

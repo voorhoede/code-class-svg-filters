@@ -1,0 +1,36 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+  <nav class="cc-navigation">
+    <a href="/" class="cc-back-link">&#8592; back to overview</a>
+    <a href="/exercise-3-answer/" class="cc-answer-link">See answer &#8594;</a>
+  </nav>
+{% endblock %}
+
+{% block introduction %}
+  <h1>Exercise 3</h1>
+  <p>Create a custom filter and apply it to the image</p>
+{% endblock %}
+
+{% block html %}
+  <section class="cc-html-playground">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+      <defs>
+        {# 1. Create custom image filter #}
+      </defs>
+
+      {# 2. Apply filter to image #}
+      <image xlink:href="../../assets/voorhoede-uitje-20.jpg" width="800" height="600" />
+    </svg>
+
+  </section>
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+    .cc-html-playground svg {
+      border: 1px solid blue;
+    }
+  </style>
+{% endblock %}

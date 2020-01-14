@@ -1,0 +1,44 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+  <nav class="cc-navigation">
+    <a href="/exercise-3/" class="cc-back-link">&#8592; back to exercise 3</a>
+  </nav>
+{% endblock %}
+
+{% block introduction %}
+  <h1>Exercise 3</h1>
+  <p>Create a custom filter and apply it to the image</p>
+{% endblock %}
+
+{% block html %}
+  <section class="cc-html-playground">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+      <defs>
+        <filter id="customFilter">
+          {# 1. Create custom image filter #}
+          <feColorMatrix
+            in="SourceGraphic"
+            type="matrix"
+            values="1   0   0  0   0
+                  -.4 1.3 -.4 .2 -.1
+                  -.2  .2  .1 .4   0
+                    0   0   0  1   0" />
+        </filter>
+      </defs>
+
+      {# 2. Apply filter to image #}
+      <image xlink:href="../../assets/voorhoede-uitje-20.jpg" width="800" height="600" filter="url(#customFilter)" />
+    </svg>
+
+  </section>
+{% endblock %}
+
+{% block styles %}
+  <style type="text/css">
+    .cc-html-playground svg {
+      border: 1px solid blue;
+    }
+  </style>
+{% endblock %}
